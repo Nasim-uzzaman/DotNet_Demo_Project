@@ -24,10 +24,11 @@ namespace MyWebApplications.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            if(obj.Name == obj.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("name", "The Display Order Can't Match The Name.");
-            }
+            //if(obj.Name == obj.DisplayOrder.ToString())
+            //{
+            //    ModelState.AddModelError("name", "The Display Order Can't Match The Name.");
+            //}
+           
             if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);
