@@ -1,6 +1,6 @@
 ﻿using DataAccess.Repository.IRepository;
 using MyWeb.Models;
-using MyWebApplication.DataAccess.Data;
+using BookBugs.DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +16,7 @@ namespace DataAccess.Repository
         public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
-        }
-
-        public void Save()
-        {
-            _db.SaveChanges();
-        }
-
+        } 
         public void Update(Category obj)
         {
            _db.Categories.Update(obj);

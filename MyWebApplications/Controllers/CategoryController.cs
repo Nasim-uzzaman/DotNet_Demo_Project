@@ -1,11 +1,10 @@
-﻿using MyWebApplication.DataAccess.Data;
+﻿using BookBugs.DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 using MyWeb.Models;
 using DataAccess.Repository.IRepository;
 
 namespace MyWeb.Controllers
-{ 
+{  
     public class CategoryController : Controller
     {
         private readonly ICategoryRepository _categoryRepo;

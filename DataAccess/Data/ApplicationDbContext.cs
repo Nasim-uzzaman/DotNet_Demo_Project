@@ -2,7 +2,7 @@
 using Models;
 using MyWeb.Models;
 
-namespace MyWebApplication.DataAccess.Data
+namespace BookBugs.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
