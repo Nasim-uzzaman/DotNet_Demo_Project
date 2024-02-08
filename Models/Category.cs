@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyWebApplications.Models
+namespace MyWeb.Models
 {
     public class Category
     {
@@ -10,10 +10,10 @@ namespace MyWebApplications.Models
         [Required]
         [MaxLength(40)]
         [DisplayName("Category Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [DisplayName("Display Order")]
-        [Range(1,200,ErrorMessage ="Please insert the order between 1-200")]
+        [Range(1, 200, ErrorMessage = "Please insert the order between 1-200")]
         public int DisplayOrder { get; set; }
-       
+
     }
 }

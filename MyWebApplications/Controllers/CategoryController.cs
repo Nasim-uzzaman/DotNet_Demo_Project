@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyWebApplications.Data;
-using MyWebApplications.Models;
-using System.Reflection.Metadata.Ecma335;
+﻿using MyWebApplication.DataAccess.Data;
+using Microsoft.AspNetCore.Mvc;
+using Models;
+using MyWeb.Models;
 
-namespace MyWebApplications.Controllers
+namespace MyWeb.Controllers
 {
     public class CategoryController : Controller
     {
