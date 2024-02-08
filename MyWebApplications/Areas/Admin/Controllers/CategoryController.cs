@@ -4,8 +4,9 @@ using MyWeb.Models;
 using DataAccess.Repository.IRepository;
 using DataAccess.Repository;
 
-namespace MyWeb.Controllers
-{  
+namespace MyWeb.Areas.Admin.Controllers
+{
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -43,7 +44,8 @@ namespace MyWeb.Controllers
 
         public IActionResult Edit(int? id)
         {
-            if(id == null || id == 0) {
+            if (id == null || id == 0)
+            {
                 return NotFound();
             }
             Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
@@ -58,7 +60,7 @@ namespace MyWeb.Controllers
         [HttpPost]
         public IActionResult Edit(Category obj)
         {
-            
+
 
             if (ModelState.IsValid)
             {
