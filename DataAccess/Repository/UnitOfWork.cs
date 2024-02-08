@@ -1,4 +1,4 @@
-﻿using BookBugs.DataAccess.Data;
+﻿using DataAccess.Data;
 using DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;

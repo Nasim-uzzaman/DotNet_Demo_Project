@@ -1,6 +1,6 @@
 ﻿using DataAccess.Repository.IRepository;
 using MyWeb.Models;
-using BookBugs.DataAccess.Data;
+using DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
