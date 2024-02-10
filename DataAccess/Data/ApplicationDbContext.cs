@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
-using MyWeb.Models;
 
-namespace DataAccess.Data
+namespace Models
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,14 +9,15 @@ namespace DataAccess.Data
         {
                  
         }
-        public DbSet<Category> Categories{ get; set; }
+        public DbSet<Product> Categories { get; set; }
+        //public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
-                new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
-                new Category { Id = 3, Name = "History", DisplayOrder = 3 }
+            modelBuilder.Entity<Product>().HasData(
+                new Product { Id = 1, Name = "Action", DisplayOrder = 1 },
+                new Product { Id = 2, Name = "SciFi", DisplayOrder = 2 },
+                new Product { Id = 3, Name = "History", DisplayOrder = 3 }
                 );
 
             modelBuilder.Entity<Product>().HasData(

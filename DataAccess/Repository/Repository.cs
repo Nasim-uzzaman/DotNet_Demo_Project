@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using DataAccess.Data;
+using Models;
 
 namespace DataAccess.Repository
 {

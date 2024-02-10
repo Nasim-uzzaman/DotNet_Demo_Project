@@ -1,13 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MyWeb
+namespace Models
 {
     public class Product
     {
         [Key]
         public int Id { get; set; }
-        [Required]    
+        [Required]
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
@@ -17,7 +22,7 @@ namespace MyWeb
         public string Author { get; set; }
         [Required]
         [Display(Name = "List Price")]
-        [Range(1,1500)]
+        [Range(1, 1500)]
         public double ListPrice { get; set; }
 
         [Required]
@@ -33,7 +38,11 @@ namespace MyWeb
         [Required]
         [Display(Name = "Price for 100+")]
         [Range(1, 1500)]
-        public double Price100 { get; set; }
-
+        public double Price100
+        {
+            get; set;
+        }
+        public string Name { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }

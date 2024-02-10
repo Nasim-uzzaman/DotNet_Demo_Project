@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository.IRepository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryRepository : IRepository<MyWeb.Models.Category>
     {
-        void Update(Category obj);
+        void Update(MyWeb.Models.Category obj);
     }
 }

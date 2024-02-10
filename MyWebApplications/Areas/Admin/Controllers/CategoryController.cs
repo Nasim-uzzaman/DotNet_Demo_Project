@@ -1,4 +1,4 @@
-﻿using DataAccess.Data;
+﻿using Models;
 using Microsoft.AspNetCore.Mvc;
 using MyWeb.Models;
 using DataAccess.Repository.IRepository;
@@ -14,9 +14,15 @@ namespace MyWeb.Areas.Admin.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
+            return Index(_unitOfWork);
+        }
+
+        public IActionResult Index(IUnitOfWork _unitOfWork)
+        {
+            List<Models.Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
             return View(objCategoryList);
         }
         public IActionResult Create()
@@ -24,7 +30,7 @@ namespace MyWeb.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(Models.Category obj)
         {
             if (obj.Name == obj.DisplayOrder.ToString())
             {
@@ -48,7 +54,7 @@ namespace MyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Models.Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
             //Category? categoryFromDb1 = _db.Categories.FirstOrDefault(u=>u.Id==id);
             //Category? categoryFromDb2 = _db.Categories.Where(u=>u.Id==id).FirstOrDefault();
             if (categoryFromDb == null)
@@ -58,7 +64,7 @@ namespace MyWeb.Areas.Admin.Controllers
             return View(categoryFromDb);
         }
         [HttpPost]
-        public IActionResult Edit(Category obj)
+        public IActionResult Edit(Models.Category obj)
         {
 
 
@@ -80,7 +86,7 @@ namespace MyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Models.Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
 
             if (categoryFromDb == null)
             {
@@ -92,7 +98,7 @@ namespace MyWeb.Areas.Admin.Controllers
         public IActionResult DeletePost(int? id)
         {
 
-            Category obj = _unitOfWork.Category.Get(u => u.Id == id);
+            Models.Category obj = _unitOfWork.Category.Get(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();
@@ -105,5 +111,9 @@ namespace MyWeb.Areas.Admin.Controllers
         }
 
 
+    }
+
+    internal class Category
+    {
     }
 }
